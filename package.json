@@ -1,6 +1,6 @@
 {
   "name": "tiny-cli-parser",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "tiny command line argument and option parser. no deps", 
   "main": "dist/tiny-cli-parser.js",
   "scripts": {
