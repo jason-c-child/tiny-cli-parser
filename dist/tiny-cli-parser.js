@@ -1,14 +1,15 @@
-const tinyCliParser = function () {
-    const count = process.argv.length;
-    let res = { options: [], args: [], count };
+const tinyCliParser = function (cli) {
     let i = 2;
+    const args = cli ? cli : process.argv;
+    const count = args.length;
+    let res = { options: [], args: [], count };
     while (i < count) {
-        let cmd = process.argv[i];
+        let cmd = args[i];
         if (cmd[0] !== '-') {
             res.args.push(cmd);
             i++;
         } else {
-            res.options.push({ flag: cmd, value: i + 2 <= count ? process.argv[i + 1] : null });
+            res.options.push({ flag: cmd, value: i + 2 <= count ? args[i + 1] : null });
             i + 2 <= count ? i = i + 2 : i++;
         }
     }
